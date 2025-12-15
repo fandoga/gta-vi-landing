@@ -2,110 +2,14 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import React from "react";
 import { ScrollTrigger } from "gsap/all";
+import { animtateWithGsap } from "../utils/animations";
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
   const tl = gsap.timeline();
 
   useGSAP(() => {
-    tl.to("#background", {
-      scrollTrigger: {
-        pin: true,
-        trigger: "#background",
-        start: "top",
-        end: "bottom",
-        scrub: 1,
-      },
-      ease: "power4.out",
-      scale: 1,
-    })
-      .to("#bg-logo", {
-        scrollTrigger: {
-          trigger: "#background",
-          start: "top top",
-          end: "bottom 110%",
-          scrub: 1,
-        },
-        ease: "power4.in",
-        opacity: 0,
-      })
-      .to(
-        "#mask",
-        {
-          scrollTrigger: {
-            trigger: "#background",
-            start: "top 0",
-            end: "bottom 40%",
-            scrub: 1,
-          },
-          ease: "power2.out",
-          css: {
-            maskSize: "100% 100%, 30vmin",
-            WebkitMaskSize: "100% 100%, 30vmin",
-          },
-        },
-        ">"
-      )
-      .to("#white-bg", {
-        scrollTrigger: {
-          trigger: "#white-bg",
-          start: "top top-=45%",
-          end: "bottom 55%",
-          scrub: 1,
-        },
-        ease: "none",
-        backgroundColor: "white",
-      })
-      .to(
-        "#mask",
-        {
-          scrollTrigger: {
-            trigger: "#background",
-            start: "top 20%",
-            end: "+=200%",
-            scrub: 1,
-          },
-          ease: "power2.out",
-          css: {
-            maskPosition: "center 15%",
-            WebkitMaskPosition: "center 15%",
-          },
-        },
-        ">"
-      )
-      .to(
-        ".entrance-message",
-        {
-          scrollTrigger: {
-            trigger: ".entrance-message",
-            start: "top top-=28%",
-            end: "+=140%",
-            scrub: 1,
-          },
-          duration: 1,
-          ease: "power1.inOut",
-          maskImage:
-            "radial-gradient(circle at 50% 0vh, black 50%, transparent 100%)",
-        },
-        "<"
-      );
-
-    // ScrollTrigger.create({
-    //   trigger: "#background",
-    //   start: "top 50%",
-    //   onEnter: () => {
-    //     gsap.set("#mask", {
-    //       maskPosition: "1000% 1000%",
-    //       WebkitMaskPosition: "1000% 1000%",
-    //     });
-    //   },
-    //   onEnterBack: () => {
-    //     gsap.set("#mask", {
-    //       maskPosition: "1000% 1000%",
-    //       WebkitMaskPosition: "1000% 1000%",
-    //     });
-    //   },
-    // });
+    animtateWithGsap(tl);
   }, []);
 
   return (
@@ -129,11 +33,13 @@ const Hero = () => {
             maskComposite: "exclude",
           }}
         >
-          <div className="pointer-events-none flex flex-col justify-center items-center entrance-message">
-            <div className="entrance-logo">
-              <img src="assets/images/logo.png" alt="" />
-            </div>
-            <div className="text-wrapper">
+          <div className="relative pointer-events-none entrance-message">
+            <img
+              className="absolute top-[-28%] w-[246px] h-full object-contain left-1/2 -translate-x-1/2"
+              src="assets/images/logo.png"
+              alt=""
+            />
+            <div className="text-wrapper mt-90">
               <h1 className="gradient-title">
                 ВЫХОДИТ <br /> 19 НОЯБРЯ <br /> 2026 ГОДА
               </h1>
@@ -141,25 +47,22 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div id="background" className="relative top-[-22%] h-screen scale-145">
-        <div className="relative flex h-full justify-center items-center h-full">
-          <div
-            id="white-bg"
-            className="absolute bg-transparent w-full h-full"
-          />
-          <img
-            className="h-full object-cover object-center"
-            src="assets/images/bg-full.jpg"
-            alt="background"
-          />
-          <div id="bg-logo" className="absolute fake-logo-wrapper">
-            <img
-              className="overlay-logo"
-              src="assets/images/hero-logo.png"
-              alt="logo"
-            />
-          </div>
-        </div>
+      <div
+        id="background"
+        className="size-full relative top-[-22%] h-screen scale-145"
+      >
+        <div id="white-bg" className="absolute bg-transparent w-full h-full" />
+        <img
+          className="h-full object-cover object-center"
+          src="assets/images/bg-full.jpg"
+          alt="background"
+        />
+        <img
+          id="hero-logo"
+          src="assets/images/hero-logo.png"
+          alt="hero-logo"
+          className="absolute h-full top-0 object-cover"
+        />
       </div>
     </section>
   );
