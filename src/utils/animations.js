@@ -103,24 +103,26 @@ export const animtateWithGsap = (tl) => {
         "--g3": "oklch(75% 0.183 55.934)",
       },
       "<"
+    )
+    .to(
+      ".entrance-message",
+      {
+        scrollTrigger: {
+          markers: true,
+          trigger: ".entrance-message",
+          toggleActions: "play none reverse none",
+          start: "+=111%",
+          end: "+=114%",
+          scrub: 1,
+        },
+        immediateRender: false,
+        duration: 1,
+        ease: "power1.inOut",
+        maskImage:
+          "radial-gradient(circle at 50% -100vh, black 0%, transparent 0%)",
+      },
+      "<"
     );
-  // .to(
-  //   ".entrance-message",
-  //   {
-  //     scrollTrigger: {
-  //       trigger: ".entrance-message",
-  //       start: "+=101%",
-  //       end: "+=103%",
-  //       scrub: 1,
-  //     },
-  //     immediateRender: false,
-  //     duration: 1,
-  //     ease: "power1.inOut",
-  //     maskImage:
-  //       "radial-gradient(circle at 50% -100vh, black 0%, transparent 0%)",
-  //   },
-  //   "<"
-  // );
 
   // Управление маской при скролле
   ScrollTrigger.create({
@@ -138,6 +140,7 @@ export const animtateWithGsap = (tl) => {
           },
         });
       } else {
+        // Восстанавливаем маску
         gsap.killTweensOf("#mask");
         gsap.set("#mask", {
           css: {
