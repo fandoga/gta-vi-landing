@@ -34,8 +34,8 @@ export const animtateWithGsap = (tl) => {
         },
         ease: "power2.out",
         css: {
-          maskSize: "100% 100%, 30vmin",
-          WebkitMaskSize: "100% 100%, 30vmin",
+          maskSize: "100% 100%, 246px",
+          WebkitMaskSize: "100% 100%, 246px",
         },
       },
       ">"
@@ -51,8 +51,7 @@ export const animtateWithGsap = (tl) => {
         },
         ease: "power2.out",
         css: {
-          maskPosition: "center 15%",
-          WebkitMaskPosition: "center 15%",
+          maskPosition: "center 12.5%",
         },
       },
       ">"
@@ -108,7 +107,6 @@ export const animtateWithGsap = (tl) => {
       ".entrance-message",
       {
         scrollTrigger: {
-          markers: true,
           trigger: ".entrance-message",
           toggleActions: "play none reverse none",
           start: "+=111%",
@@ -124,7 +122,6 @@ export const animtateWithGsap = (tl) => {
       "<"
     );
 
-  // Управление маской при скролле
   ScrollTrigger.create({
     trigger: "#background",
     start: "top -1",

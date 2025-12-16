@@ -113,7 +113,7 @@ main {
     }
   }
   .jason {
-    @apply relative z-10 lg:ps-40 2xl:ps-80 ps-10 py-40 flex lg:flex-row flex-col justify-between gap-5 w-dvw overflow-x-hidden;
+    @apply relative z-10 my-[-20rem] mb-[30rem] flex flex-col justify-center items-center gap-5 w-dvw overflow-x-hidden;
 
     h1 {
       @apply text-yellow font-long uppercase text-8xl mb-20;

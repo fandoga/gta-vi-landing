@@ -2,7 +2,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import React from "react";
 import { ScrollTrigger } from "gsap/all";
-import { animtateWithGsap } from "../utils/animations";
+import { animtateWithGsap } from "./animationsHero.js";
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
@@ -35,7 +35,7 @@ const Hero = () => {
         >
           <div className="relative pointer-events-none entrance-message">
             <img
-              className="absolute top-[-28%] w-[246px] h-full object-contain left-1/2 -translate-x-1/2"
+              className="absolute top-[-301px] w-[246px] h-full object-contain left-1/2 -translate-x-1/2"
               src="assets/images/logo.png"
               alt=""
             />

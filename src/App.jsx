@@ -1,6 +1,6 @@
 import "./App.css";
-import Hero from "./components/Hero";
-import Jason from "./components/Jason";
+import Hero from "./components/Hero/Hero.jsx";
+import Jason from "./components/Jason/Jason.jsx";
 
 function App() {
   return (
