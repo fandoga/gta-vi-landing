@@ -12,7 +12,7 @@ const Jason = () => {
 
   return (
     <section className="jason">
-      <div id="info" className="text-left max-w-300 opacity-0">
+      <div id="info" className="scale-130 text-left max-w-300 opacity-0">
         <h2 className="md:text-7xl text-6xl mb-7 font-bold bg-gradient-to-l from-red-300 to-rose-500 bg-clip-text text-transparent">
           Вайс-Сити, США.
         </h2>

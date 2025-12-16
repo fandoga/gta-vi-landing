@@ -11,15 +11,28 @@ export const animtateWithGsap = (tl) => {
     scrub: 1,
   });
 
-  tl.to("#info", {
-    scrollTrigger: {
-      markers: true,
-      trigger: ".jason",
-      start: "top top+=20%",
-      end: "+=20%",
-      scrub: 1,
+  tl.fromTo(
+    "#info",
+    {
+      scale: 1.3,
+      opacity: 0,
     },
-    ease: "power2.inOut",
-    opacity: 1,
-  });
+    {
+      scrollTrigger: {
+        markers: true,
+        trigger: ".jason",
+        start: "top top+=14%",
+        end: "+=90%",
+        scrub: 1,
+      },
+      ease: "power2.inOut",
+      // css: {
+      //   "--tw-gradient-from": "var(--color-purple-400)",
+      //   "--tw-gradient-to": "var(--color-fuchsia-600)",
+      // },
+      scale: 1,
+      opacity: 1,
+    },
+    "<"
+  );
 };

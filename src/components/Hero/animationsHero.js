@@ -110,7 +110,7 @@ export const animtateWithGsap = (tl) => {
           trigger: ".entrance-message",
           toggleActions: "play none reverse none",
           start: "+=111%",
-          end: "+=114%",
+          end: "+=170%",
           scrub: 1,
         },
         immediateRender: false,
@@ -125,6 +125,7 @@ export const animtateWithGsap = (tl) => {
   ScrollTrigger.create({
     trigger: "#background",
     start: "top -1",
+    end: "+=500%",
     onToggle: (self) => {
       // self.isActive = true когда триггер активен (скролл вниз)
       // self.isActive = false когда триггер неактивен (скролл назад)
