@@ -1,18 +1,141 @@
-# React + Vite
+## GTA VI — Scroll-based Landing (React + GSAP)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Одностраничный лендинг по мотивам GTA VI с кинематографичными скролл-анимациями.  
+Используется связка React + GSAP (ScrollTrigger) для «живых» сцен, масок, закрепления блоков при прокрутке и плавных переходов между секциями.
 
-Currently, two official plugins are available:
+### Возможности
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Hero-сцена** с фоновой картинкой и логотипом, исчезающим по скроллу.
+- **Маска-логотип** (SVG/изображение), открывающая фон при движении.
+- **Секция Jason**: закрепление («pin») текста и появление контента по мере скролла.
+- Адаптивная вёрстка под разные разрешения (desktop / tablet / mobile).
 
-## React Compiler
+---
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Технологический стек
 
-Note: This will impact Vite dev & build performances.
+- **React** — UI и компонентный подход.
+- **Vite** — быстрая сборка и dev-сервер.
+- **GSAP** + **ScrollTrigger** — анимации и скролл-логика.
+- **Tailwind CSS / utility-first классы** — стилизация через классы в JSX.
+- **ESLint** — базовый линтинг кода.
+- **JavaScript (ESNext)**.
 
-## Expanding the ESLint configuration
+При необходимости стек можно расширить (например, добавить Three.js для 3D-сцен).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Структура проекта
+
+- `src/App.jsx` — корневой компонент приложения.
+- `src/index.css` / `src/App.css` — глобальные стили и базовая типографика.
+- `src/components/Hero/`
+  - `Hero.jsx` — hero-секция с фоном и логотипом.
+  - `animationsHero.js` — анимации GSAP/ScrollTrigger для Hero.
+- `src/components/Jason/`
+  - `Jason.jsx` — секция с текстовым блоком Jason.
+  - `animationsJason.js` — анимации GSAP/ScrollTrigger для этой секции.
+- `public/assets/images/` — изображения: фон, логотипы, маски и т.п.
+
+---
+
+## Установка и запуск
+
+### 1. Клонирование репозитория
+
+```bash
+git clone https://github.com/<your-username>/<your-repo>.git
+cd <your-repo>
+```
+
+### 2. Установка зависимостей
+
+```bash
+npm install
+# или
+yarn
+# или
+pnpm install
+```
+
+### 3. Запуск dev-сервера
+
+```bash
+npm run dev
+# или
+yarn dev
+# или
+pnpm dev
+```
+
+После запуска открой:
+
+```text
+http://localhost:5173
+```
+
+(порт может отличаться, см. вывод Vite в терминале).
+
+---
+
+## Сборка и предпросмотр production-версии
+
+### Сборка
+
+```bash
+npm run build
+# или
+yarn build
+# или
+pnpm build
+```
+
+Результат попадёт в папку `dist/`.
+
+### Локальный предпросмотр production-сборки
+
+```bash
+npm run preview
+# или
+yarn preview
+# или
+pnpm preview
+```
+
+---
+
+## Скрипты из package.json
+
+- **`dev`** — запуск Vite dev-сервера.
+- **`build`** — сборка проекта для продакшена.
+- **`preview`** — предпросмотр собранной версии.
+- **`lint`** (если есть) — проверка кода ESLint.
+
+---
+
+## Как устроены анимации
+
+- Все анимации собраны в отдельных файлах (`animationsHero.js`, `animationsJason.js`) и импортируются в соответствующие компоненты.
+- Используется `gsap.timeline()` и `ScrollTrigger`:
+  - `pin` — фиксация блоков на экране при скролле.
+  - `scrub` — синхронизация прогресса анимации с прокруткой.
+  - Маски (`mask-image`, `WebkitMaskImage`) для эффектов «проявления» фона и текста.
+
+Чтобы добавить новую анимацию, достаточно:
+
+1. Создать функцию анимации в отдельном файле.
+2. Инициализировать `gsap.timeline()` в компоненте.
+3. Вызвать функцию анимации внутри `useGSAP`.
+
+---
+
+## Требования
+
+- Node.js **v16+** (рекомендуется v18+).
+- Современный браузер с поддержкой CSS-масок и `clip-path` (для некоторых эффектов).
+
+---
+
+## Лицензия
+
+Добавь свою лицензию здесь (например, MIT), либо укажи, что проект используется как учебный/личный).
