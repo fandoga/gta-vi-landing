@@ -35,7 +35,7 @@ const Hero = () => {
         >
           <div className="relative pointer-events-none entrance-message">
             <img
-              className="absolute top-[-301px] w-[246px] h-full object-contain left-1/2 -translate-x-1/2"
+              className="absolute w-[246px] h-full object-contain object-[0_12.5%] left-1/2 -translate-x-1/2"
               src="assets/images/logo.png"
               alt=""
             />

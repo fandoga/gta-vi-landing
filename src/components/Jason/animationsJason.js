@@ -19,7 +19,6 @@ export const animtateWithGsap = (tl) => {
     },
     {
       scrollTrigger: {
-        markers: true,
         trigger: ".jason",
         start: "top top+=14%",
         end: "+=90%",
