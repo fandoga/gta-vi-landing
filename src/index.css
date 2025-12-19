@@ -71,7 +71,7 @@ main {
     --g2: oklch(80.8% 0.114 19.571); /* red-400 */
     --g3: oklch(83.7% 0.128 66.29); /* orange-400 */
 
-    @apply md:text-[8rem] text-[5rem] font-round-bold !font-extrabold uppercase md:leading-[7rem] leading-[4.5rem] text-center bg-clip-text text-transparent;
+    @apply 2xl:text-[11rem] md:text-[8rem] text-[5rem] font-round-bold !font-extrabold uppercase md:leading-[7rem] 2xl:leading-[11rem] leading-[4.5rem] text-center bg-clip-text text-transparent;
     background-image: linear-gradient(90deg, var(--g1), var(--g2), var(--g3));
   }
   .hero-section {

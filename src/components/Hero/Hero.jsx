@@ -35,11 +35,11 @@ const Hero = () => {
         >
           <div className="relative pointer-events-none entrance-message">
             <img
-              className="absolute w-[246px] h-full object-contain object-[0_12.5%] left-1/2 -translate-x-1/2"
+              className="absolute 2xl:w-[350px] w-[246px] h-full object-contain object-[0_12.5%] left-1/2 -translate-x-1/2"
               src="assets/images/logo.png"
               alt=""
             />
-            <div className="text-wrapper mt-90">
+            <div className="text-wrapper 2xl:mt-110 mt-90">
               <h1 className="gradient-title">
                 ВЫХОДИТ <br /> 19 НОЯБРЯ <br /> 2026 ГОДА
               </h1>

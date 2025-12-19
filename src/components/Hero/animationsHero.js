@@ -12,18 +12,41 @@ export const animtateWithGsap = (tl) => {
     },
     ease: "power4.out",
     scale: 1,
-  })
-    .to("#hero-logo", {
-      scrollTrigger: {
-        trigger: "#background",
-        start: "top top",
-        end: "bottom 110%",
-        scrub: 1,
+  }).to("#hero-logo", {
+    scrollTrigger: {
+      trigger: "#background",
+      start: "top top",
+      end: "bottom 110%",
+      scrub: 1,
+    },
+    ease: "power4.in",
+    opacity: 0,
+  });
+
+  const mm = gsap.matchMedia();
+
+  mm.add("(min-width: 1536px)", () => {
+    tl.to(
+      "#mask",
+      {
+        scrollTrigger: {
+          trigger: "#background",
+          start: "top 0",
+          end: "bottom 40%",
+          scrub: 1,
+        },
+        ease: "power2.out",
+        css: {
+          maskSize: "100% 100%, 350px",
+          WebkitMaskSize: "100% 100%, 350px",
+        },
       },
-      ease: "power4.in",
-      opacity: 0,
-    })
-    .to(
+      ">"
+    );
+  });
+
+  mm.add("(max-width: 1535px)", () => {
+    tl.to(
       "#mask",
       {
         scrollTrigger: {
@@ -39,7 +62,25 @@ export const animtateWithGsap = (tl) => {
         },
       },
       ">"
-    )
+    );
+  });
+
+  tl.to(
+    "#mask",
+    {
+      scrollTrigger: {
+        trigger: "#background",
+        start: "top top",
+        end: "bottom 42%",
+        scrub: 1,
+      },
+      ease: "power2.out",
+      css: {
+        maskPosition: "center 12.5%",
+      },
+    },
+    ">"
+  )
     .to(
       "#mask",
       {
